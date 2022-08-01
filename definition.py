@@ -28,11 +28,11 @@ class Element(object):
         self.__value = value
 
     @overload_value
-    def value(self):
+    def value(self) -> None:
         pass
 
     @overload_index
-    def index(self):
+    def index(self) -> None:
         pass
 
     def value_return(self) -> int:
@@ -51,8 +51,8 @@ class Element(object):
 class Matrix(Element):
     def __init__(self, matrix: list, k: int) -> object:
         if matrix:
-            for x,row in enumerate(matrix):
-                for y,element in enumerate(row):
+            for x, row in enumerate(matrix):
+                for y, element in enumerate(row):
                     matrix[x][y] = Element((x, y,), matrix[x][y])
         self.__matrix = matrix
         self.__k = k
